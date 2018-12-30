@@ -32,26 +32,28 @@ public class GoodBye2018ProblemB {
         Collections.sort(l, new Comparator<List<Integer>>() {
             @Override
             public int compare(List<Integer> a, List<Integer> b) {
-                if(a.get(0) < b.get(0)) {
-                    return -1;
-                } else if(a.get(0) == b.get(0)) {
-                    return a.get(1).compareTo(b.get(1));
-                } else {
-                    return 1;
-                }
+                return a.get(1).compareTo(b.get(1));
+            }
+        });
+
+        Collections.sort(l, new Comparator<List<Integer>>() {
+            @Override
+            public int compare(List<Integer> a, List<Integer> b) {
+                return a.get(0).compareTo(b.get(0));
             }
         });
 
         Collections.sort(l2, new Comparator<List<Integer>>() {
             @Override
             public int compare(List<Integer> a, List<Integer> b) {
-                if(a.get(0) < b.get(0)) {
-                    return -1;
-                } else if(a.get(0) == b.get(0)) {
-                    return a.get(1).compareTo(b.get(1));
-                } else {
-                    return 1;
-                }
+                return a.get(1).compareTo(b.get(1));
+            }
+        });
+
+        Collections.sort(l2, new Comparator<List<Integer>>() {
+            @Override
+            public int compare(List<Integer> a, List<Integer> b) {
+                return a.get(0).compareTo(b.get(0));
             }
         });
 
