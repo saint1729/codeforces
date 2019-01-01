@@ -1,7 +1,5 @@
 import java.util.Scanner;
-import java.util.Set;
 import java.util.Stack;
-import java.util.TreeSet;
 
 public class GoodBye2018ProblemC {
 
@@ -25,42 +23,4 @@ public class GoodBye2018ProblemC {
      }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
