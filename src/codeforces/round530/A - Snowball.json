@@ -1,5 +1,5 @@
 {
-  "name" : "C - New Year and the Sphere Transmission",
+  "name" : "A - Snowball",
   "testType" : "SINGLE",
   "input" : {
     "type" : "STANDARD"
@@ -8,18 +8,18 @@
     "type" : "STANDARD"
   },
   "tests" : [ ],
-  "location" : "src/goodbye2018",
+  "location" : "src/codeforces/round530",
   "vmArgs" : "-Xmx256M",
   "mainClass" : "Main",
-  "taskClass" : "goodbye2018.TaskC",
+  "taskClass" : "codeforces.round530.TaskA",
   "checkerClass" : "net.egork.chelper.checkers.TokenChecker",
   "checkerParameters" : "",
   "testClasses" : [ ],
-  "date" : "2019.01.02",
-  "contestName" : "Good Bye 2018",
+  "date" : "2019.01.05",
+  "contestName" : "Codeforces Round #530 (Div. 2)",
   "truncate" : true,
-  "inputClass" : "java.util.Scanner",
-  "outputClass" : "java.io.PrintWriter",
+  "inputClass" : "FastIO.InputReader",
+  "outputClass" : "FastIO.OutputWriter",
   "includeLocale" : false,
   "failOnOverflow" : false,
   "interactive" : false

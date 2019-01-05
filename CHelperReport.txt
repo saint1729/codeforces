@@ -1,0 +1,2 @@
+41 src/codeforces/round530/A - Snowball.json
+0

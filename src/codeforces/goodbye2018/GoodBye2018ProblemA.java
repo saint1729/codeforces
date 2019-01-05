@@ -1,3 +1,5 @@
+package codeforces.goodbye2018;
+
 import java.util.Scanner;
 
 public class GoodBye2018ProblemA {
