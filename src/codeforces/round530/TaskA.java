@@ -42,7 +42,6 @@ public class TaskA {
             ans = 0;
         }
 
-        System.out.println(ans);
-
+        out.println(ans);
     }
 }
