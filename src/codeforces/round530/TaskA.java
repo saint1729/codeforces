@@ -6,12 +6,12 @@ import FastIO.OutputWriter;
 public class TaskA {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
 
-        int w = in.nextInt();
-        int h = in.nextInt();
-        int u1 = in.nextInt();
-        int d1 = in.nextInt();
-        int u2 = in.nextInt();
-        int d2 = in.nextInt();
+        int w = in.nI();
+        int h = in.nI();
+        int u1 = in.nI();
+        int d1 = in.nI();
+        int u2 = in.nI();
+        int d2 = in.nI();
 
         int ans = w;
 
@@ -42,6 +42,6 @@ public class TaskA {
             ans = 0;
         }
 
-        out.println(ans);
+        out.pn(ans);
     }
 }

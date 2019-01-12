@@ -1,7 +1,6 @@
 import java.io.OutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.BufferedWriter;
@@ -23,52 +22,31 @@ public class Main {
         OutputStream outputStream = System.out;
         InputReader in = new InputReader(inputStream);
         OutputWriter out = new OutputWriter(outputStream);
-        TaskA solver = new TaskA();
+        AMinimumInteger solver = new AMinimumInteger();
         solver.solve(1, in, out);
         out.close();
     }
 
-    static class TaskA {
+    static class AMinimumInteger {
         public void solve(int testNumber, InputReader in, OutputWriter out) {
 
-            int w = in.nextInt();
-            int h = in.nextInt();
-            int u1 = in.nextInt();
-            int d1 = in.nextInt();
-            int u2 = in.nextInt();
-            int d2 = in.nextInt();
+            StringBuilder sb = new StringBuilder("");
 
-            int ans = w;
+            for (int i = in.nI(); i > 0; i--) {
+                int l = in.nI();
+                int r = in.nI();
+                int d = in.nI();
 
-            if (d2 < d1) {
-                int temp = u2;
-                u2 = u1;
-                u1 = temp;
-
-                temp = d2;
-                d2 = d1;
-                d1 = temp;
-            }
-
-            for (int i = h; i > 0; i--) {
-                if (ans < 0) {
-                    ans = 0;
-                }
-                if (i == d1) {
-                    ans -= u1;
-                } else if (i == d2) {
-                    ans -= u2;
+                if ((d < l) || (d > r)) {
+                    sb.append(d).append("\n");
                 } else {
-                    ans += i;
+                    sb.append((r / d + 1) * d).append("\n");
                 }
             }
 
-            if (ans < 0) {
-                ans = 0;
-            }
+            out.p(sb);
 
-            System.out.println(ans);
-
+            return;
         }
 
     }
@@ -82,6 +60,15 @@ public class Main {
 
         public OutputWriter(Writer writer) {
             this.writer = new PrintWriter(writer);
+        }
+
+        public void p(Object... objects) {
+            for (int i = 0; i < objects.length; i++) {
+                if (i != 0) {
+                    writer.print(' ');
+                }
+                writer.print(objects[i]);
+            }
         }
 
         public void close() {
@@ -101,7 +88,7 @@ public class Main {
             this.stream = stream;
         }
 
-        public int read() {
+        public int r() {
             if (numChars == -1) {
                 throw new InputMismatchException();
             }
@@ -119,15 +106,15 @@ public class Main {
             return buf[curChar++];
         }
 
-        public int nextInt() {
-            int c = read();
+        public int nI() {
+            int c = r();
             while (isSpaceChar(c)) {
-                c = read();
+                c = r();
             }
             int sgn = 1;
             if (c == '-') {
                 sgn = -1;
-                c = read();
+                c = r();
             }
             int res = 0;
             do {
@@ -136,7 +123,7 @@ public class Main {
                 }
                 res *= 10;
                 res += c - '0';
-                c = read();
+                c = r();
             } while (!isSpaceChar(c));
             return res * sgn;
         }

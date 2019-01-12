@@ -1,4 +1,4 @@
-//package com.codeforces.round527Div3;
+package codeforces.round527;//package com.codeforces.round527Div3;
 
 import java.util.Scanner;
 

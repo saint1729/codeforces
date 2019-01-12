@@ -22,7 +22,7 @@ public class InputReader {
         this.stream = stream;
     }
 
-    public int read() {
+    public int r() {
         if (numChars == -1) {
             throw new InputMismatchException();
         }
@@ -40,7 +40,7 @@ public class InputReader {
         return buf[curChar++];
     }
 
-    public int peek() {
+    public int pk() {
         if (numChars == -1) {
             return -1;
         }
@@ -58,15 +58,15 @@ public class InputReader {
         return buf[curChar];
     }
 
-    public int nextInt() {
-        int c = read();
+    public int nI() {
+        int c = r();
         while (isSpaceChar(c)) {
-            c = read();
+            c = r();
         }
         int sgn = 1;
         if (c == '-') {
             sgn = -1;
-            c = read();
+            c = r();
         }
         int res = 0;
         do {
@@ -75,20 +75,20 @@ public class InputReader {
             }
             res *= 10;
             res += c - '0';
-            c = read();
+            c = r();
         } while (!isSpaceChar(c));
         return res * sgn;
     }
 
-    public long nextLong() {
-        int c = read();
+    public long nL() {
+        int c = r();
         while (isSpaceChar(c)) {
-            c = read();
+            c = r();
         }
         int sgn = 1;
         if (c == '-') {
             sgn = -1;
-            c = read();
+            c = r();
         }
         long res = 0;
         do {
@@ -97,22 +97,22 @@ public class InputReader {
             }
             res *= 10;
             res += c - '0';
-            c = read();
+            c = r();
         } while (!isSpaceChar(c));
         return res * sgn;
     }
 
-    public String nextString() {
-        int c = read();
+    public String nS() {
+        int c = r();
         while (isSpaceChar(c)) {
-            c = read();
+            c = r();
         }
         StringBuilder res = new StringBuilder();
         do {
             if (Character.isValidCodePoint(c)) {
                 res.appendCodePoint(c);
             }
-            c = read();
+            c = r();
         } while (!isSpaceChar(c));
         return res.toString();
     }
@@ -128,85 +128,85 @@ public class InputReader {
         return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
     }
 
-    private String readLine0() {
+    private String rL0() {
         StringBuilder buf = new StringBuilder();
-        int c = read();
+        int c = r();
         while (c != '\n' && c != -1) {
             if (c != '\r') {
                 buf.appendCodePoint(c);
             }
-            c = read();
+            c = r();
         }
         return buf.toString();
     }
 
-    public String readLine() {
-        String s = readLine0();
+    public String rL() {
+        String s = rL0();
         while (s.trim().length() == 0) {
-            s = readLine0();
+            s = rL0();
         }
         return s;
     }
 
-    public String readLine(boolean ignoreEmptyLines) {
+    public String rL(boolean ignoreEmptyLines) {
         if (ignoreEmptyLines) {
-            return readLine();
+            return rL();
         } else {
-            return readLine0();
+            return rL0();
         }
     }
 
-    public BigInteger readBigInteger() {
+    public BigInteger rBI() {
         try {
-            return new BigInteger(nextString());
+            return new BigInteger(nS());
         } catch (NumberFormatException e) {
             throw new InputMismatchException();
         }
     }
 
-    public char nextCharacter() {
-        int c = read();
+    public char nCh() {
+        int c = r();
         while (isSpaceChar(c)) {
-            c = read();
+            c = r();
         }
         return (char) c;
     }
 
-    public double nextDouble() {
-        int c = read();
+    public double nD() {
+        int c = r();
         while (isSpaceChar(c)) {
-            c = read();
+            c = r();
         }
         int sgn = 1;
         if (c == '-') {
             sgn = -1;
-            c = read();
+            c = r();
         }
         double res = 0;
         while (!isSpaceChar(c) && c != '.') {
             if (c == 'e' || c == 'E') {
-                return res * Math.pow(10, nextInt());
+                return res * Math.pow(10, nI());
             }
             if (c < '0' || c > '9') {
                 throw new InputMismatchException();
             }
             res *= 10;
             res += c - '0';
-            c = read();
+            c = r();
         }
         if (c == '.') {
-            c = read();
+            c = r();
             double m = 1;
             while (!isSpaceChar(c)) {
                 if (c == 'e' || c == 'E') {
-                    return res * Math.pow(10, nextInt());
+                    return res * Math.pow(10, nI());
                 }
                 if (c < '0' || c > '9') {
                     throw new InputMismatchException();
                 }
                 m /= 10;
                 res += (c - '0') * m;
-                c = read();
+                c = r();
             }
         }
         return res * sgn;
@@ -214,14 +214,14 @@ public class InputReader {
 
     public boolean isExhausted() {
         int value;
-        while (isSpaceChar(value = peek()) && value != -1) {
-            read();
+        while (isSpaceChar(value = pk()) && value != -1) {
+            r();
         }
         return value == -1;
     }
 
     public String next() {
-        return nextString();
+        return nS();
     }
 
     public SpaceCharFilter getFilter() {
@@ -237,7 +237,7 @@ public class InputReader {
     }
     public int[] nextIntArray(int n){
         int[] array=new int[n];
-        for(int i=0;i<n;++i)array[i]=nextInt();
+        for(int i=0;i<n;++i)array[i]=nI();
         return array;
     }
     public int[] nextSortedIntArray(int n){
@@ -247,19 +247,19 @@ public class InputReader {
     }
     public int[] nextSumIntArray(int n){
         int[] array=new int[n];
-        array[0]=nextInt();
-        for(int i=1;i<n;++i)array[i]=array[i-1]+nextInt();
+        array[0]=nI();
+        for(int i=1;i<n;++i)array[i]=array[i-1]+nI();
         return array;
     }
     public long[] nextLongArray(int n){
         long[] array=new long[n];
-        for(int i=0;i<n;++i)array[i]=nextLong();
+        for(int i=0;i<n;++i)array[i]=nL();
         return array;
     }
     public long[] nextSumLongArray(int n){
         long[] array=new long[n];
-        array[0]=nextInt();
-        for(int i=1;i<n;++i)array[i]=array[i-1]+nextInt();
+        array[0]=nI();
+        for(int i=1;i<n;++i)array[i]=array[i-1]+nI();
         return array;
     }
     public long[] nextSortedLongArray(int n){

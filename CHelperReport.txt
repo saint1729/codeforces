@@ -1,2 +1,2 @@
-41 src/codeforces/round530/A - Snowball.json
+50 src/codeforces/contest1101/A. Minimum Integer.json
 0

@@ -21,11 +21,11 @@ public class OutputWriter {
         this.writer = new PrintWriter(writer);
     }
 
-    public void print(char[] array) {
+    public void p(char[] array) {
         writer.print(array);
     }
 
-    public void print(Object... objects) {
+    public void p(Object... objects) {
         for (int i = 0; i < objects.length; i++) {
             if (i != 0) {
                 writer.print(' ');
@@ -34,7 +34,7 @@ public class OutputWriter {
         }
     }
 
-    public void print(int[] array) {
+    public void p(int[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i != 0) {
                 writer.print(' ');
@@ -43,7 +43,7 @@ public class OutputWriter {
         }
     }
 
-    public void print(double[] array) {
+    public void p(double[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i != 0) {
                 writer.print(' ');
@@ -52,7 +52,7 @@ public class OutputWriter {
         }
     }
 
-    public void print(long[] array) {
+    public void p(long[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i != 0) {
                 writer.print(' ');
@@ -61,43 +61,43 @@ public class OutputWriter {
         }
     }
 
-    public void println(int[] array) {
-        print(array);
+    public void pn(int[] array) {
+        p(array);
         writer.println();
     }
 
-    public void println(double[] array) {
-        print(array);
+    public void pn(double[] array) {
+        p(array);
         writer.println();
     }
 
-    public void println(long[] array) {
-        print(array);
+    public void pn(long[] array) {
+        p(array);
         writer.println();
     }
 
-    public void println() {
+    public void pn() {
         writer.println();
     }
 
-    public void println(Object... objects) {
-        print(objects);
+    public void pn(Object... objects) {
+        p(objects);
         writer.println();
     }
 
-    public void print(char i) {
+    public void p(char i) {
         writer.print(i);
     }
 
-    public void println(char i) {
+    public void pn(char i) {
         writer.println(i);
     }
 
-    public void println(char[] array) {
+    public void pn(char[] array) {
         writer.println(array);
     }
 
-    public void printf(String format, Object... objects) {
+    public void pf(String format, Object... objects) {
         writer.printf(format, objects);
     }
 
@@ -109,25 +109,25 @@ public class OutputWriter {
         writer.flush();
     }
 
-    public void print(long i) {
+    public void p(long i) {
         writer.print(i);
     }
 
-    public void println(long i) {
+    public void pn(long i) {
         writer.println(i);
     }
 
-    public void print(int i) {
+    public void p(int i) {
         writer.print(i);
     }
 
-    public void println(int i) {
+    public void pn(int i) {
         writer.println(i);
     }
 
     public void separateLines(int[] array) {
         for (int i : array) {
-            println(i);
+            pn(i);
         }
     }
 }
