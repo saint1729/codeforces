@@ -22,31 +22,16 @@ public class Main {
         OutputStream outputStream = System.out;
         InputReader in = new InputReader(inputStream);
         OutputWriter out = new OutputWriter(outputStream);
-        AMinimumInteger solver = new AMinimumInteger();
+        ARomanAndBrowser solver = new ARomanAndBrowser();
         solver.solve(1, in, out);
         out.close();
     }
 
-    static class AMinimumInteger {
+    static class ARomanAndBrowser {
         public void solve(int testNumber, InputReader in, OutputWriter out) {
-
-            StringBuilder sb = new StringBuilder("");
-
-            for (int i = in.nI(); i > 0; i--) {
-                int l = in.nI();
-                int r = in.nI();
-                int d = in.nI();
-
-                if ((d < l) || (d > r)) {
-                    sb.append(d).append("\n");
-                } else {
-                    sb.append((r / d + 1) * d).append("\n");
-                }
-            }
-
-            out.p(sb);
-
-            return;
+            int n = in.nI(), k = in.nI();
+            int[] a = in.nextIntArray(n);
+            out.p(-30 / 47);
         }
 
     }
@@ -62,17 +47,12 @@ public class Main {
             this.writer = new PrintWriter(writer);
         }
 
-        public void p(Object... objects) {
-            for (int i = 0; i < objects.length; i++) {
-                if (i != 0) {
-                    writer.print(' ');
-                }
-                writer.print(objects[i]);
-            }
-        }
-
         public void close() {
             writer.close();
+        }
+
+        public void p(int i) {
+            writer.print(i);
         }
 
     }
@@ -137,6 +117,12 @@ public class Main {
 
         public static boolean isWhitespace(int c) {
             return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+        }
+
+        public int[] nextIntArray(int n) {
+            int[] array = new int[n];
+            for (int i = 0; i < n; ++i) array[i] = nI();
+            return array;
         }
 
         public interface SpaceCharFilter {

@@ -1,2 +1,4 @@
-50 src/codeforces/contest1101/A. Minimum Integer.json
+52 src/codeforces/contest1100/A. Roman and Browser.json
+2
 0
+1
