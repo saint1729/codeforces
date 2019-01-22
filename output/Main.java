@@ -4,8 +4,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.BufferedWriter;
+import java.util.Map;
 import java.io.Writer;
 import java.io.OutputStreamWriter;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,26 +24,40 @@ public class Main {
         OutputStream outputStream = System.out;
         InputReader in = new InputReader(inputStream);
         OutputWriter out = new OutputWriter(outputStream);
-        ARomanAndBrowser solver = new ARomanAndBrowser();
+        ASplittingIntoDigits solver = new ASplittingIntoDigits();
         solver.solve(1, in, out);
         out.close();
     }
 
-    static class ARomanAndBrowser {
+    static class ASplittingIntoDigits {
         public void solve(int testNumber, InputReader in, OutputWriter out) {
-            int n = in.nI(), k = in.nI();
-            int[] a = in.nextIntArray(n);
-            //out.p(-30/47);
 
-            for (int b = 1; b <= n; b++) {
-                int count = 0;
-                for (int i = -n / 2; i <= (n - 1) / 2; i++) {
-                    int c = b + i * k;
-                    if (c > 0) {
-                        count++;
-                    }
-                }
+            int n = in.nI();
+            if (n < 10) {
+                out.p(n);
+                out.p(n);
             }
+            Map<Integer, Integer> m = new HashMap<>();
+
+            int i = 9;
+
+            int digits = 0;
+
+            while ((i > 0) && (n >= 0)) {
+
+                int div = n / i;
+
+                m.put(i, div);
+
+                n = n - div * i;
+
+                n = n % i;
+                i -= 1;
+                digits += div;
+            }
+
+            out.pn(digits);
+
         }
 
     }
@@ -59,6 +75,14 @@ public class Main {
 
         public void close() {
             writer.close();
+        }
+
+        public void p(int i) {
+            writer.print(i);
+        }
+
+        public void pn(int i) {
+            writer.println(i);
         }
 
     }
@@ -123,12 +147,6 @@ public class Main {
 
         public static boolean isWhitespace(int c) {
             return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-        }
-
-        public int[] nextIntArray(int n) {
-            int[] array = new int[n];
-            for (int i = 0; i < n; ++i) array[i] = nI();
-            return array;
         }
 
         public interface SpaceCharFilter {
